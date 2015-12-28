@@ -1,0 +1,84 @@
+<div>
+    <form name="uploader-form" data="uploader-form-{{target}}" method="post" action="/uploadQiniu" enctype="multipart/form-data" target="LBFUPLOADER" style="display: none;">
+        <input type="file" name="file" class="file_uploader_input" style="visibility:hidden;" ng-click="getMaxNum();"/>
+        <input type="submit" value="Submit" id="submit" style="visibility:hidden;"/>
+    </form>
+    <!-- <div class="loading-backg"> -->
+        <div class="code-box" ng-class={false:'hide-none'}[visible] >
+            <p class="editor-piture"><span>编辑图片</span><span class="close" ng-click="close();"></span></p>
+            <div class="code-pic">
+                <div ng-repeat="image in images" class="picture-frame frame-editor">
+                    <div><img ng-src="{{image.source}}" data-fileKey="{{image.fileKey}}"></div>
+                    <div class="picture-delect" ng-if="image.isPic && !image.isEdit && image.isHover"></div>
+                    <div class="picture-place" ng-mouseenter="hoverin($event)" ng-mouseleave="hoverout($event);">
+                        <div class="picture-editor hide-none" ng-if="image.isPic && !image.isEdit && image.isHover" ng-click="crop($event, $index)" data-source="{{image.source}}">
+                            <a href="javascript:void(0);">点击编辑</a>
+                        </div>
+                        <div class="delect-scon" ng-if="image.isPic">
+                            <a href="javascript:void(0);" ng-click="remove($index);"></a>
+                        </div>
+                    </div>
+                    <div ng-class={true:'picture-editor-succe'}[image.isEdit]></div>
+                </div>
+            </div>
+            <div class="picture-manege">
+                <div class="eject image-flow file-uploader-box" data="file-uploader-box-{{target}}">
+                    <img ng-src="{{curImage.source}}" class="file-uploader-crop-img" data="file-uploader-crop-img-{{target}}">
+                    <!-- <p class="note">通过拖动图片和滑竿来编辑图片</p> -->
+                </div>
+                <div class="picture-line" data="picture-line-{{target}}">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                    <div class="line4"></div>
+                    <div class="line5"></div>
+                    <div class="line6"></div>
+                    <div class="line7"></div>
+                    <div class="line8"></div>
+                    <div class="line9"></div>
+                </div>
+                <div class="zoom-line">
+                    <div class="zoom-line">
+                        <p class="large"><a href="javascript:void(0);" class="zoom-large">放大</a></p>
+                        <div class="zoom-btn" data="zoom-btn-{{target}}">
+                            <div class="zoom-gre" data="zoom-gre-{{target}}"></div>
+                            <div class="zoom-fon" data="zoom-fon-{{target}}">
+                                <img ng-src="{{barIconUrl}}"  class="froad-uploader-icon" data="froad-uploader-icon-{{target}}"/>
+                            </div>
+                            <div class="scon-top"></div>
+                            <div class="scon-bot"></div>
+                        </div>
+                        <p class="litter"><a href="javascript:void(0);" class="zoom-litte">缩小</a></p>
+                    </div>
+                </div>
+                <div class="zoom-editor" ng-class={true:'zoom-succes'}[curImage.isEdit]>
+                    <a href="javascript:void(0);" ng-click="edit();"></a>
+                </div>
+            </div>
+            <div class="foot-confirm">
+                <span>确定所有图片编辑成功即可点击</span>
+                <button class="btn" ng-click="save();">保存</button>
+            </div>
+            <div class="bomb-box" ng-class={false:'hide-none'}[dialog]>
+                <div class="bomb-pic">
+                    <p>{{MSG}}</p>
+                    <div class="bomb-firm" ng-class={false:'hide-none'}[btns]>
+                        <button class="btn yes" ng-click="yes();">确定</button>
+                        <button class="btn btn-color no" ng-click="no();">取消</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- </div> -->
+    <div class="bomb-box bomb-box-fix" ng-class={false:'hide-none'}[dialogOut]>
+        <div class="bomb-pic">
+            <p>{{MSG}}</p>
+        </div>
+    </div>
+    <!-- <div class="loading-backg"></div> -->
+    <div class="stop-editor-back" ng-class={false:'hide-none'}[loading]>
+        <div class="loading-pic"></div>
+    </div>
+    <!--     <div class="loading-pic"></div>
+    <div class="loading-backg"></div> -->
+</div>

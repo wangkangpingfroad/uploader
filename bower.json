@@ -1,0 +1,33 @@
+{
+  "name": "uploader",
+  "version": "0.0.1",
+  "main": "src",
+  "ignore": [
+    "dist",
+    "task",
+    ".bowerrc",
+    ".editorconfig",
+    ".gitignore",
+    ".jshintignore",
+    ".jshintrc",
+    ".npmignore",
+    ".travis.yml",
+    ".yo-rc.json",
+    "bower.json",
+    "gruntfile.js",
+    "npm-debug.log",
+    "package.json",
+    "README.md"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "bootstrap": "~3.3.4",
+    "jquery": "1.9.1",
+    "angularjs-ie8-build": "1.3.8",
+    "angular-ui-bootstrap": "~0.13.3",
+    "angular-animate": "~1.3.0",
+    "angular-cookies": "~1.3.0",
+    "angular-route": "~1.3.0",
+    "angular": "~1.3.0"
+  }
+}
